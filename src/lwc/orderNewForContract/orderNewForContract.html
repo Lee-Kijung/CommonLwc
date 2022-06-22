@@ -1,0 +1,42 @@
+<!--
+ - Created by ms on 2022-06-20.
+ -->
+
+<!-- Order New For Contract -->
+<template>
+    <c-lwc-com-base is-spinner={isSpinner}>
+        <c-lwc-com-header is-desk-top-or-tablet={isDeskTopOrTablet} slot="baseHeader">
+            <lightning-button slot="headerButton" label="저장" variant="brand"></lightning-button>
+        </c-lwc-com-header>
+
+        <c-lwc-com-body slot="baseBody">
+                <c-lwc-com-section-frame has-header="true" title="주문 요약 정보" slot="bodyComponent">
+                    <lightning-record-edit-form object-api-name="Order" slot="sectionComponent">
+                        <lightning-layout horizontal-align="end">
+                            <lightning-layout-item size="1" class="slds-align-middle">
+                                <label class="slds-m-top_medium">{labelOrder.accountid}</label>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="9">
+                                <p class="slds-list_horizontal slds-m-left_x-large slds-m-bottom_medium">
+                                    <lightning-input-field id="orderAccountId" field-name="AccountId" class="slds-list_horizontal slds-m-left_x-large slds-m-bottom_medium slds-m-top_large" variant="label-hidden" onchange={handleChange}></lightning-input-field>
+                                    <lightning-button label="제품 조회" type="button" class="slds-size_1-of-5 left-side custom-box slds-m-left_medium slds-m-top_medium" variant="brand" onclick={moveSearchList}></lightning-button>
+                                </p>
+                                <lightning-button label="링크" type="button" class="slds-size_1-of-5 left-side custom-box slds-m-left_medium slds-m-top_medium" variant="brand" onclick={naviService}></lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-record-edit-form>
+                </c-lwc-com-section-frame>
+
+            <c-lwc-com-section-frame has-header="true" title="제품 정보" slot="bodyComponent">
+                <lightning-datatable slot="sectionComponent"
+                        key-field="id"
+                        data={recordList}
+                        columns={cols}
+                        hide-checkbox-column="true"
+                        show-row-number-column>
+                </lightning-datatable>
+            </c-lwc-com-section-frame>
+
+        </c-lwc-com-body>
+    </c-lwc-com-base>
+</template>
