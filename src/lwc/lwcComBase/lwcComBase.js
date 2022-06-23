@@ -29,7 +29,7 @@ export default class LwcComBase extends NavigationMixin(LightningElement) {
         this.doInit();
     }
 
-    doInit(event) {
+    doInit() {
         this.isCommunity = this.doIsCommunitySite();
     }
 
@@ -114,13 +114,14 @@ export default class LwcComBase extends NavigationMixin(LightningElement) {
      * @param event
      * @param helper
      */
+
     async doGetSobjectData(targetObjectList){
         await getSobjectData({'targetObjectList': targetObjectList})
             .then(result => {
                 this.labelMap = result;
             })
             .catch(error => {
-                this.gfn_ApexErrorHandle(error);
+                this.doApexErrorHandle(error);
             });
     }
 

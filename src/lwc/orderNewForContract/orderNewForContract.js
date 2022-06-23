@@ -1,10 +1,9 @@
 /**
  * Created by ms on 2022-06-20.
  */
-import { wire, api, track} from 'lwc';
+import { track} from 'lwc';
 import LwcComBase from "c/lwcComBase";
 import initData from '@salesforce/apex/OrderNewForContract.init';
-import { NavigationMixin } from 'lightning/navigation';
 
 const COLS = [
     {label : '제품 이름', fieldName : 'Name'},
@@ -20,20 +19,24 @@ export default class OrderNewForContract extends LwcComBase {
     accountId = '';
 
     connectedCallback() {
-        this.doGetSobjectData(this.targetObjectList).then(r =>  {
-            this.labelOrder = this.labelMap.Order;
-        });
+        this.init();
     }
 
-    @wire(initData)
-    init({error, data}){
-        this.doShowSpinner();
-        if(data){
-            this.recordList = data.recordList;
-        }else if(error){
-            this.doApexErrorHandle(error);
-        }
-        this.doHideSpinner();
+    init(){
+        this.doGetSobjectData(this.targetObjectList).then(r => {
+            this.labelOrder = this.labelMap.Order;
+        });
+        this.getInitData();
+    }
+
+     getInitData(){
+        initData()
+            .then(data => {
+                this.recordList = data.recordList;
+            })
+            .catch(error => {
+                this.doApexErrorHandle(error);
+            });
     }
 
     moveSearchList(){
@@ -46,8 +49,6 @@ export default class OrderNewForContract extends LwcComBase {
     }
 
     naviService(){
-
-        //this.doNaviService();
         this.doNaviService({
             type: "standard__recordPage",
             attributes: {
