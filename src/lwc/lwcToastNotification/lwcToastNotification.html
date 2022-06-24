@@ -1,0 +1,35 @@
+<!--
+ - Created by ms on 2022-06-24.
+ -->
+
+<!-- Lwc Toast Notification -->
+<template>
+    <lightning-card title="Notification" icon-name="custom:custom19">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+                    label="Title"
+                    value={titleText}
+                    data-id="titleInput"
+                    onchange={titleChange}>
+            </lightning-input>
+            <lightning-input
+                    label="Message"
+                    value={messageText}
+                    data-id="messageInput"
+                    onchange={messageChange}>
+            </lightning-input>
+            <lightning-combobox
+                    label="Variant"
+                    value={variant}
+                    onchange={variantChange}
+                    options={variantOptions}>
+            </lightning-combobox>
+            <p class="slds-var-m-vertical_small">
+                <lightning-button
+                        label="Notification 호출"
+                        onclick={showNotification}>
+                </lightning-button>
+            </p>
+        </div>
+    </lightning-card>
+</template>

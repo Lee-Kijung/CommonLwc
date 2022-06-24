@@ -1,0 +1,28 @@
+<!--
+ - Created by ms on 2022-06-24.
+ -->
+
+<!-- Lwc Create Form -->
+<template>
+    <lightning-card title="신규생성(Lead Object)" icon-name="custom:custom19">
+        <div class="slds-var-m-around_medium">
+            <lightning-record-edit-form object-api-name="Lead" onsuccess={handleSuccess}>
+                <lightning-input-field field-name="Name"></lightning-input-field>
+                <lightning-input-field required field-name="Title"></lightning-input-field>
+                <lightning-input-field field-name="Company"></lightning-input-field>
+                <lightning-input-field field-name="Phone"></lightning-input-field>
+                <lightning-input-field field-name="MobilePhone"></lightning-input-field>
+                <lightning-input-field field-name="Email"></lightning-input-field>
+                <lightning-input-field field-name="Status"></lightning-input-field>
+                <p class="slds-var-m-vertical_small">
+                <lightning-button
+                        variant="brand"
+                        type="submit"
+                        name="save"
+                        label="생성">
+                </lightning-button>
+                </p>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

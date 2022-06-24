@@ -1,0 +1,10 @@
+/**
+ * Created by ms on 2022-06-23.
+ */
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 463px;
+    min-height: 100px;
+}

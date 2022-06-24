@@ -61,7 +61,7 @@ export default class LwcComBase extends NavigationMixin(LightningElement) {
         // log 처리와 toast 처리
         //============================================================================
         console.error(toastErrorMessage);
-        this.gfn_toast('Error', toastErrorMessage, 'e', '');
+        this.doToast('Error', toastErrorMessage, 'e');
     }
 
     /**
@@ -72,12 +72,11 @@ export default class LwcComBase extends NavigationMixin(LightningElement) {
      * @param mode
      */
 
-    doToast(title, msg, type, mode){
+    doToastNotification(title, msg, type){
         const evt = new ShowToastEvent({
             title   : title,
             message : msg,
-            variant : type === 's' ? 'success' : (type === 'w' ? 'warning' : 'error'),
-            mode    : mode ? 'dismissible' : mode
+            variant : type
         });
         this.dispatchEvent(evt);
     }
