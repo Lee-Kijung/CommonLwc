@@ -1,5 +1,5 @@
 /**
- * Created by ms on 2022-06-24.
+ * Created by lkj on 2022-06-27.
  */
 
 import {LightningElement} from 'lwc';
@@ -16,7 +16,7 @@ const COLS = [
     {label : 'Lead Status', fieldName : 'Status'}
 ]
 
-export default class LwcListDataTableForm extends LwcComBase {
+export default class LwcListDataTable extends LwcComBase {
     columns = COLS;
     leads;
 

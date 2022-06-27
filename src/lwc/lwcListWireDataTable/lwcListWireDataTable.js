@@ -1,5 +1,5 @@
 /**
- * Created by ms on 2022-06-24.
+ * Created by lkj on 2022-06-27.
  */
 
 import {wire} from 'lwc';
@@ -17,7 +17,7 @@ const COLS = [
     {label : 'Lead Status', fieldName : 'Status'}
 ]
 
-export default class LwcWireDataTableForm extends LwcComBase {
+export default class LwcListWireDataTable extends LwcComBase {
     columns = COLS;
     searchKey = '';
     leads;

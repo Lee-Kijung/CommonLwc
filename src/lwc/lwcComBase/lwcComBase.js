@@ -1,3 +1,7 @@
+/**
+ * Created by lkj on 2022-06-21.
+ */
+
 import {LightningElement, api, track} from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { NavigationMixin } from 'lightning/navigation';

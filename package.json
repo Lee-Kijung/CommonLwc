@@ -1,0 +1,7 @@
+{
+  "name": "LwcConvert",
+  "version": "1.0.0",
+  "dependencies": {
+    "lightning": "^5.16.3"
+  }
+}
