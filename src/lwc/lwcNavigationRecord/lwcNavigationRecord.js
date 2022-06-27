@@ -5,7 +5,7 @@
 import LwcComBase from "c/lwcComBase";
 
 export default class LwcNavigationRecord extends LwcComBase {
-    recordId = '00Q5h000009HN1kEAG';
+    recordId = '00Q5i000005CGLzEAO';
     actionName = "view";
 
     get options() {
